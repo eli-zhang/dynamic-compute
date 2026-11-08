@@ -589,6 +589,45 @@
           newest closed models aren't in these two charts.</p>
       </section>
 
+      <section class="eci-card" id="eci-threshold">
+        <h2>What a dynamic compute threshold would look like</h2>
+        <div class="eci-controls">
+          <label>Starting threshold
+            <select data-thr="start">
+              <option value="23">10²³ FLOP</option>
+              <option value="24">10²⁴ FLOP</option>
+              <option value="25">10²⁵ FLOP</option>
+              <option value="26" selected>10²⁶ FLOP</option>
+              <option value="27">10²⁷ FLOP</option>
+            </select>
+          </label>
+          <label>Falls by
+            <select data-thr="rate">
+              <option value="1">1× a year (fixed)</option>
+              <option value="2">2× a year</option>
+              <option value="3">3× a year</option>
+              <option value="6">6× a year</option>
+              <option value="10">10× a year</option>
+              <option value="25" selected>25× a year</option>
+            </select>
+          </label>
+        </div>
+        <p class="eci-lede">With this scaling factor, a model sitting right on the dynamic threshold would
+          score about ECI <b data-draw="thr-stat" data-key="eci0" data-source="compute_join compute_fit">—</b> at the
+          start and ECI <b data-draw="thr-stat" data-key="eci1" data-source="compute_join compute_fit">—</b> at the end.
+        </p>
+        <div class="eci-legend">
+          <span class="eci-item"><i class="eci-sw" data-slot="0"></i>Above the dynamic threshold</span>
+          <span class="eci-item"><i class="eci-sw"></i>Below it</span>
+          <span class="eci-item"><i class="eci-line-sw"></i>Dynamic threshold</span>
+          <span class="eci-item"><i class="eci-dash"></i>Fixed threshold at the starting level</span>
+        </div>
+        <div class="eci-chart eci-chart-sm eci-chart-thr dash-skeleton" data-draw="thr-chart" data-source="compute_join"
+          role="img"
+          aria-label="Training compute of each model against release date, with a dynamic and a fixed compute threshold">
+        </div>
+      </section>
+
       <section class="eci-card" id="eci-3d">
         <h2>ECI, release date and training compute in 3D</h2>
         <div class="eci-controls">
@@ -617,43 +656,6 @@
         <div class="eci-chart eci-chart-3d dash-skeleton" data-draw="chart3d" data-source="compute_join compute_fit"
           role="img"
           aria-label="3D scatter of ECI score against release date and training compute, with the fitted plane"></div>
-      </section>
-
-      <section class="eci-card" id="eci-threshold">
-        <h2>What a dynamic compute threshold would look like</h2>
-        <div class="eci-controls">
-          <label>Starting threshold
-            <select data-thr="start">
-              <option value="23">10²³ FLOP</option>
-              <option value="24" selected>10²⁴ FLOP</option>
-              <option value="25">10²⁵ FLOP</option>
-              <option value="26">10²⁶ FLOP</option>
-            </select>
-          </label>
-          <label>Falls by
-            <select data-thr="rate">
-              <option value="1">1× a year (fixed)</option>
-              <option value="3">3× a year</option>
-              <option value="6">6× a year</option>
-              <option value="10">10× a year</option>
-              <option value="25" selected>25× a year</option>
-            </select>
-          </label>
-        </div>
-        <p class="eci-lede">With this scaling factor, a model sitting right on the dynamic threshold would
-          score about ECI <b data-draw="thr-stat" data-key="eci0" data-source="compute_join compute_fit">—</b> at the
-          start and ECI <b data-draw="thr-stat" data-key="eci1" data-source="compute_join compute_fit">—</b> at the end.
-        </p>
-        <div class="eci-legend">
-          <span class="eci-item"><i class="eci-sw" data-slot="0"></i>Above the dynamic threshold</span>
-          <span class="eci-item"><i class="eci-sw"></i>Below it</span>
-          <span class="eci-item"><i class="eci-line-sw"></i>Dynamic threshold</span>
-          <span class="eci-item"><i class="eci-dash"></i>Fixed threshold at the starting level</span>
-        </div>
-        <div class="eci-chart eci-chart-sm eci-chart-thr dash-skeleton" data-draw="thr-chart" data-source="compute_join"
-          role="img"
-          aria-label="Training compute of each model against release date, with a dynamic and a fixed compute threshold">
-        </div>
       </section>
 
       <section class="eci-card" id="eci-table">
