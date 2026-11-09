@@ -605,10 +605,10 @@
             <select data-thr="rate">
               <option value="1">1× a year (fixed)</option>
               <option value="2">2× a year</option>
-              <option value="3">3× a year</option>
+              <option value="3" selected>3× a year</option>
               <option value="6">6× a year</option>
               <option value="10">10× a year</option>
-              <option value="25" selected>25× a year</option>
+              <option value="25">25× a year</option>
             </select>
           </label>
         </div>
@@ -638,7 +638,7 @@
             <button type="button" data-view3d="top">Compute vs time</button>
           </span>
           <label><input type="checkbox" data-ctl3d="plane" checked> Fitted plane</label>
-          <label><input type="checkbox" data-ctl3d="stems" checked> Drop lines</label>
+          <label><input type="checkbox" data-ctl3d="stems"> Drop lines</label>
           <label><input type="checkbox" data-ctl3d="thr" checked> Dynamic threshold</label>
         </div>
         <div class="eci-legend">
@@ -1320,7 +1320,7 @@
       })();</script>
 
     <script>(function () {
-        window.eci3d = window.eci3d || { yaw: -0.5, pitch: 0.3, plane: true, stems: true, thr: true };
+        window.eci3d = window.eci3d || { yaw: -0.5, pitch: 0.3, plane: true, stems: false, thr: true };
         const R3 = window.eci3d;
         const SUP3 = '⁰¹²³⁴⁵⁶⁷⁸⁹';
         const sup3 = (n) => String(n).split('').map((ch) => (ch === '-' ? '⁻' : SUP3[+ch])).join('');
@@ -1626,7 +1626,7 @@
       })();</script>
 
     <script>(function () {
-        window.eciThr = window.eciThr || { start: 24, rate: 25, year: 2023 };
+        window.eciThr = window.eciThr || { start: 26, rate: 3, year: 2023 };
         const TH = window.eciThr;
         const YRT = 365.25 * 864e5;
         window.eciThrLog = (ms) => TH.start - (Math.log10(TH.rate) * (ms - Date.UTC(TH.year, 0, 1))) / YRT;
